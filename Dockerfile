@@ -6,4 +6,4 @@ RUN cd /opt && \
     cd pihole-yt && \
     sed -i "s|repoDir='/pi/youTube_ads_4_pi-hole'|repoDir='/opt/pihole-yt'|" youtube.sh && \
     chmod +x youtube.sh && \
-    echo "0 */1 * * * /opt/pihole-yt/youtube.sh > /dev/null" | crontab -
+    (crontab -l 2> /dev/null; echo "0 */1 * * * /opt/pihole-yt/youtube.sh > /dev/null") | crontab -
